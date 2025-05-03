@@ -1,8 +1,13 @@
+li {
+  list-style-type: none;
+}
+
 .layout {
   display: grid;
   grid-template-areas: 
     "patients-list diagnosis-history patient-profile"
-    "patients-list diagnostic-list patient-profile";
+    "patients-list diagnostic-history patient-profile"
+    "patients-list diagnostic-list lab-results";
 }
 
 .patients-list {
@@ -20,4 +25,8 @@
 
 .diagnostic-list {
   grid-area: diagnostic-list;
+}
+
+.lab-results {
+  grid-area: lab-results;
 }

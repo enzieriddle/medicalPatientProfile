@@ -57,6 +57,14 @@ function App() {
     </li>
   );
 
+  const labResults = jessicaTaylor?.lab_results.map((result,i) =>
+    <li key={result}>
+      <div>
+        <span>{result}</span>
+      </div>
+    </li>
+  );
+
   
   return (
     <>
@@ -131,7 +139,9 @@ function App() {
         </ul>
       </div>
       <div className="lab-results">
-
+        <ul>
+          {labResults}
+        </ul>
       </div>
       </div>
 
