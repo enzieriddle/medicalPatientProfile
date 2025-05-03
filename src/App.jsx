@@ -22,7 +22,7 @@ function App() {
             return response.json();
         }
     }).then(function (data) {
-        console.log(data);
+        //console.log(data);
         setUsersData(data)
         
     }).catch(function (error) {
@@ -31,10 +31,11 @@ function App() {
   }, []);
 
     usersDataArray = Object.values(usersData);
-    jessicaTaylor = Object.values(usersData).filter(user => user.name === 'Jessica Taylor')
+    jessicaTaylor = Object.values(usersData).filter(user => user.name === 'Jessica Taylor');
+    jessicaTaylor = jessicaTaylor[0];
     console.log(jessicaTaylor);
 
-  const listItems = usersDataArray.map((user) =>
+  const patientsList = usersDataArray.map((user) =>
     <li key={user.name}>
       <div>
         <img src={user.profile_picture}></img>
@@ -42,17 +43,26 @@ function App() {
         <span>{user.gender}</span>
         <span>{user.age}</span>
       </div>
-      
-      
-      </li> 
+    </li> 
 );
+
+
+  const diagnosisList = jessicaTaylor?.diagnostic_list.map((diagnosis,i) =>
+    <li key={diagnosis.name}>
+      <div>
+        <span>{diagnosis.name}</span>
+        <span>{diagnosis.description}</span>
+        <span>{diagnosis.status}</span>
+      </div>
+    </li>
+  );
 
   
   return (
     <>
       <div className="layout">
       <div className="patients-list">
-        <ul> {listItems}</ul>
+        <ul> {patientsList}</ul>
       </div>
       <div className="diagnosis-history">
         <div>
@@ -60,61 +70,71 @@ function App() {
         </div>
 
         <div>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</p>
         </div>
 
         <div>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</p>
         </div>
 
         <div>
           <img height="80" width="80" src="./src/assets/respiratoryRate.svg"></img>
           <p>Respiratory Rate</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
         </div>
 
         <div>
           <img height="80" width="80" src="./src/assets/temperature.svg"></img>
           <p>Temperature</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.temperature?.value } degrees</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.temperature?.levels }</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } degrees</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
         </div>
 
         <div>
           <img height="80" width="80" src="./src/assets/heartBPM.svg"></img>
           <p>Heart Rate</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.temperature?.value } bpm</p>
-          <p>{jessicaTaylor[0]?.diagnosis_history[0]?.temperature?.levels }</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } bpm</p>
+          <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
         </div>
       </div>
       
       <div className="patient-profile">
         <div>
           <div>
-            <img src={jessicaTaylor[0]?.profile_picture}></img>
+            <img src={jessicaTaylor?.profile_picture}></img>
           </div>
           <div>
             <img height="40" width="40" src="./src/assets/FemaleIcon.svg"></img>
-            <p>{jessicaTaylor[0]?.gender}</p>
+            <p>{jessicaTaylor?.gender}</p>
           </div>
           <div>
             <img height="40" width="40" src="./src/assets/birthIcon.svg"></img>
-            <p>{jessicaTaylor[0]?.date_of_birth}</p>
+            <p>{jessicaTaylor?.date_of_birth}</p>
           </div>
           <div>
             <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
-            <p>{jessicaTaylor[0]?.phone_number}</p>
+            <p>{jessicaTaylor?.phone_number}</p>
           </div>
           <div>
             <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
-            <p>{jessicaTaylor[0]?.emergency_contact}</p>
+            <p>{jessicaTaylor?.emergency_contact}</p>
           </div>
         </div>
       </div>
+
+      <div className="diagnostic-list">
+        <ul>
+          {diagnosisList}
+        </ul>
       </div>
+      <div className="lab-results">
+
+      </div>
+      </div>
+
       
     </>
   )

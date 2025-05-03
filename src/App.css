@@ -1,7 +1,8 @@
 .layout {
   display: grid;
   grid-template-areas: 
-    "patients-list diagnosis-history patient-profile";
+    "patients-list diagnosis-history patient-profile"
+    "patients-list diagnostic-list patient-profile";
 }
 
 .patients-list {
@@ -15,4 +16,8 @@
 
 .patient-profile {
   grid-area: patient-profile;
+}
+
+.diagnostic-list {
+  grid-area: diagnostic-list;
 }
