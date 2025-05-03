@@ -1,0 +1,18 @@
+.layout {
+  display: grid;
+  grid-template-areas: 
+    "patients-list diagnosis-history patient-profile";
+}
+
+.patients-list {
+  grid-area: patients-list;
+  height: 50vh;
+}
+
+.diagnosis-history {
+  grid-area: diagnosis-history;
+}
+
+.patient-profile {
+  grid-area: patient-profile;
+}
