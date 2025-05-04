@@ -91,6 +91,7 @@ li {
 .message p,
 .transaction p {
   margin-top: 14px;
+  font-family: Manrope-Bold;
 }
 
 .doc-info {
@@ -100,7 +101,7 @@ li {
   grid-template-areas: 
     "doc-img doc-name"
     "doc-img doc-title";
-}
+} 
 
 .doc-img {
   grid-area: doc-img;
@@ -111,11 +112,13 @@ li {
   grid-area: doc-name;
   margin-top: 5px;
   margin-bottom: 0px;
+  font-family: Manrope-Bold;
 }
 
 .doc-title {
   grid-area: doc-title;
   margin-top: 0px;
+  color: #707070;
 }
 
 .settings {
@@ -128,11 +131,127 @@ li {
 
 .patients-list {
   grid-area: patients-list;
-  height: 50vh;
+  margin: 1em; 
+  background-color: white;
+  border-radius: 16px; 
+  padding: 1em;
+  height: 60%
+}
+
+.patients-list-ul {
+  padding: 0;
+  height: 70vh;
+  overflow-y:auto;
+}
+
+.selected-patient {
+  background-color: #D8FCF7;
+}
+
+.patient-style {
+  display: grid;
+  grid-template-columns: .25fr .5fr .25fr;
+  padding: 1em .5em;
+  grid-template-areas: 
+    "patient-img patient-name horiz-dots"
+    "patient-img age-gender horiz-dots";
+}
+
+.patients-head {
+  display: grid;
+  grid-template-areas: "patients-head-h3 patients-head-img"
+}
+
+.patients-head h3 {
+  grid-area: patients-head-h3;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-family: Manrope-Bold;
+  font-size: 24px
+}
+
+.patients-head img {
+  grid-area: patients-head-img;
+  align-self: center;
+  justify-self: right;
+}
+
+.patient-img {
+  grid-area: patient-img;
+  height: 47px;
+} 
+
+.patient-name {
+  grid-area: patient-name;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Manrope-Bold;
+}
+
+.age-gender {
+  grid-area: age-gender;
+  color: #707070;
+  font-size: 14px;
+}
+
+.horiz-dots {
+  grid-area: horiz-dots;
+  align-self: center;
+  justify-self: right; 
 }
 
 .diagnosis-history {
   grid-area: diagnosis-history;
+  margin: 1em;
+  padding: 1em;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.diagnosis-history h3 {
+  font-family: Manrope-Bold;
+  font-size: 24px;
+}
+
+.chart-bp-background {
+  background-color: #F4F0FE;
+  border-radius: 16px;
+  padding: 1em;
+}
+ 
+.bp-head {
+  display: grid;
+  grid-template-columns: .4fr .15fr .05fr;
+  grid-template-areas: "bp-head-title date-range bp-head-arrow";
+}
+
+.bp-head p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.bp-head-title {
+  grid-area: bp-head-title;
+  font-family: Manrope-Bold;
+  font-size: 18px;
+}
+
+.date-range {
+  grid-area: date-range;
+  font-size: 14px;
+  text-align: end;
+  align-self: center;
+}
+
+.bp-head-arrow {
+  grid-area: bp-head-arrow;
+  height: 6px;
+  align-self: center;
+  margin-left: .5em;
+}
+
+.diagnosis-history h3 {
+  margin-top: 0;
 }
 
 .chart-bp {
@@ -140,12 +259,25 @@ li {
   grid-template-areas: "line-chart bp";
 }
 
-.line-chart {
+.line-chart { 
   grid-area: line-chart;
 }
 
 .bp {
   grid-area: bp;
+}
+
+.systolic img,
+.diastolic img {
+  margin-right: .5em;
+  vertical-align: middle;
+}
+
+.systolic p,
+.diastolic p {
+  font-size: 22px;
+  margin-bottom: 0;
+  font-family: Manrope-Bold;
 }
 
 .line-chart {
@@ -154,23 +286,61 @@ li {
 
 .diagnosis-history-ratings {
   display: grid;
+  grid-template-columns: .33fr .33fr .33fr;
   grid-template-areas: "resp-rate temp heart-rate"
+}
+
+.ratings-title {
+  margin-bottom: 0;
 }
 
 .resp-rate {
   grid-area: resp-rate;
+  background-color: #E0F3FA;
+}
+
+.ratings-value {
+  font-family: Manrope-Bold;
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.heart-rate-down-arrow {
+  margin-right: .5em;
 }
 
 .temp {
   grid-area: temp;
+  background-color: #FFE6E9;
 }
 
 .heart-rate {
   grid-area: heart-rate;
+  background-color: #FFE6F1;
+}
+
+.resp-rate,
+.temp,
+.heart-rate {
+  border-radius: 16px;
+  padding: 1em;
+  margin: 1em 1em 1em 0;
 }
 
 .patient-profile {
   grid-area: patient-profile;
+}
+
+.patient-profile-pic {
+  display: block;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.patient-profile-name {
+  font-family: Manrope-Bold;
+  font-size: 30px;
+  text-align: center;
 }
 
 .diagnostic-list {

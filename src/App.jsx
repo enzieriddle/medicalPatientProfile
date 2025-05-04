@@ -38,14 +38,16 @@ function App() {
     console.log(jessicaTaylor);
 
   const patientsList = usersDataArray.map((user) =>
-    <li key={user.name}>
-      <div>
-        <img src={user.profile_picture} alt="user profile picture"></img>
-        <span>{user.name}</span>
-        <span>{user.gender}</span>
-        <span>{user.age}</span>
-        <img src="src/assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="three horizontal dots"></img>
-      </div>
+    <li key={user.name} className={user.name == "Jessica Taylor" ? 'selected-patient': '' }> 
+      <div className="patient-style">
+        <img className="patient-img" src={user.profile_picture} alt="user profile picture"></img>
+        <p className="patient-name">{user.name}</p>
+        <div className="age-gender">
+          <span>{user.gender}, </span>
+          <span>{user.age}</span>  
+        </div>  
+        <img className="horiz-dots" src="src/assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="three horizontal dots"></img>
+      </div>  
     </li> 
 );
 
@@ -72,12 +74,18 @@ function App() {
 
  /* const diagnosisHistory = jessicaTaylor?.diagnosis_history.map((history) => 
     console.log(history)
-  ); */
+  ); 
   jessicaTaylor?.diagnosis_history.map((history) => 
     console.log(history.blood_pressure.systolic.value)
-  ); 
+  ); */
   //console.log(diagnosisHistory?.month);
 
+  const chartOptions = {
+    legend: {
+      display: true,
+      position: "right"
+    }
+  };
 
   
   return (
@@ -88,7 +96,7 @@ function App() {
 
           <div className="overview">
             <img src="./src/assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="house icon"></img>
-            <p>Overview</p>
+            <p>Overview</p> 
           </div>
           <div className="patients">
             <img src="src/assets/group_FILL0_wght300_GRAD0_opsz24.svg" alt="patients icon"></img>
@@ -120,67 +128,85 @@ function App() {
         </div>
         <div className="patients-list">
           <div className="patients-head">
-            <h3>Patients</h3>
+            <h3>Patients</h3> 
             <img src="./src/assets/search_FILL0_wght300_GRAD0_opsz24.svg" alt="spy glass icon" />
-          </div>
+          </div> 
           
-          <ul> {patientsList}</ul>
+          <ul className="patients-list-ul"> {patientsList}</ul>
         </div>
         <div className="diagnosis-history">
-          <div>
-            <p>Diagnosis History</p>
+          <h3>Diagnosis History</h3>
+
+          <div className="chart-bp-background">
+          <div className="bp-head">
+              <p className="bp-head-title">Blood Pressure</p>
+              <p className="date-range">Last 6 months</p>
+              <img className="bp-head-arrow" src="./src/assets/expand_more_FILL0_wght300_GRAD0_opsz24@2x.png" alt="down-arrow-icon"></img>
           </div>
 
-          <div className="chart-bp">
+          <div className="chart-bp"> 
             <div className="line-chart">
-              <Line data={{
+              <Line options={chartOptions} data={{
                 labels: jessicaTaylor?.diagnosis_history.slice(0,6).map(history => history.month),
                 datasets: [{
                   label: "Systolic",
-                  data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.systolic.value)
+                  data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.systolic.value),
+                  tension: .3,
+                  borderColor: '#E66FD2',
+                  options: {
+                    plugins: {
+                      legend: {
+                        position: 'right'
+                      }
+                    }
+                  }
                 }, {
                   label: "Diastolic",
-                  data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.diastolic.value)
+                  data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.diastolic.value),
+                  tension: .3,
+                  borderColor: '#7E6CAB'
                 }
-              ] 
+              ]
               }} />
             </div>
             <div className="bp">
-              <div>
+              <div className="systolic">
                 <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
                 <img src="./src/assets/ArrowUp.svg" alt="up arrow icon"></img>
-                <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</p>
+                <span>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</span>
               </div>
 
-              <div>
+              <div className="diastolic">
                 <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
                 <img src="./src/assets/ArrowDown.svg" alt="down arrow icon"></img>
-                <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</p>
+                <span>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</span>
               </div>
             </div>
-            
           </div>
+          </div>
+          
           
           <div className="diagnosis-history-ratings">
             <div className="resp-rate">
               <img height="80" width="80" src="./src/assets/respiratoryRate.svg"></img>
-              <p>Respiratory Rate</p>
-              <p>{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
+              <p className="ratings-title">Respiratory Rate</p>
+              <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
               <p>{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
             </div>
 
             <div className="temp">
               <img height="80" width="80" src="./src/assets/temperature.svg"></img>
-              <p>Temperature</p>
-              <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } degrees</p>
+              <p className="ratings-title">Temperature</p>
+              <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } °F</p>
               <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
             </div>
 
             <div className="heart-rate">
               <img height="80" width="80" src="./src/assets/heartBPM.svg"></img>
-              <p>Heart Rate</p>
-              <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } bpm</p>
-              <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
+              <p className="ratings-title">Heart Rate</p>
+              <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.heart_rate?.value } bpm</p>
+              <img className="heart-rate-down-arrow" src="./src/assets/ArrowDown.svg" alt="down arrow icon"></img>
+              <span>{jessicaTaylor?.diagnosis_history[0]?.heart_rate?.levels }</span>
             </div>
           </div>
          
@@ -188,10 +214,8 @@ function App() {
         
         <div className="patient-profile">
           <div>
-            <div>
-              <img src={jessicaTaylor?.profile_picture}></img>
-            </div>
-            <p>{jessicaTaylor?.name}</p>
+              <img className="patient-profile-pic" src={jessicaTaylor?.profile_picture}></img>
+            <p className="patient-profile-name">{jessicaTaylor?.name}</p>
             <div>
               <img height="40" width="40" src="./src/assets/birthIcon.svg"></img>
               <p>Date of Birth</p>
