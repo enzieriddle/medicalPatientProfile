@@ -2,12 +2,128 @@ li {
   list-style-type: none;
 }
 
+.inline {
+  display: inline;
+}
+
 .layout {
   display: grid;
   grid-template-areas: 
+    "navigation navigation navigation"
     "patients-list diagnosis-history patient-profile"
     "patients-list diagnostic-history patient-profile"
     "patients-list diagnostic-list lab-results";
+}
+
+.navigation {
+  background-color: white;
+  border-radius: 70px;
+  padding: 15px 25px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: .5em;
+  display: grid;
+  grid-area: navigation;
+  grid-template-areas:
+    "logo overview patients schedule message transaction doc-info settings";
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.overview {
+  grid-area: overview;
+  display: flex;
+}
+
+.overview img {
+  height: 17px;
+  margin: 17px;
+}
+
+.patients {
+  background-color: #01F0D0;
+  border-radius: 70px;
+  grid-area: patients;
+  display: flex;
+  padding-right: 1em;
+}
+
+.patients img {
+  height: 17px;
+  margin: 17px;
+}
+
+.schedule {
+  grid-area: schedule;
+  display: flex;
+}
+
+.schedule img {
+  height: 17px;
+  margin: 17px;
+}
+
+.message {
+ grid-area: message;
+ display: flex;
+}
+
+.message img {
+  height: 17px;
+  margin: 17px;
+}
+
+.transaction {
+  grid-area: transaction;
+  display: flex;
+}
+
+.transaction img {
+  height: 17px;
+  margin: 17px;
+}
+
+.overview p,
+.patients p,
+.schedule p,
+.message p,
+.transaction p {
+  margin-top: 14px;
+}
+
+.doc-info {
+  display: grid;
+  grid-area: doc-info;
+  grid-column-gap: 1em;
+  grid-template-areas: 
+    "doc-img doc-name"
+    "doc-img doc-title";
+}
+
+.doc-img {
+  grid-area: doc-img;
+  margin-top: 10px
+}
+
+.doc-name {
+  grid-area: doc-name;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.doc-title {
+  grid-area: doc-title;
+  margin-top: 0px;
+}
+
+.settings {
+  grid-area: settings;
+}
+
+.gear {
+  margin-right: 1em;
 }
 
 .patients-list {
@@ -17,6 +133,40 @@ li {
 
 .diagnosis-history {
   grid-area: diagnosis-history;
+}
+
+.chart-bp {
+  display: grid;
+  grid-template-areas: "line-chart bp";
+}
+
+.line-chart {
+  grid-area: line-chart;
+}
+
+.bp {
+  grid-area: bp;
+}
+
+.line-chart {
+  max-width: 70vw;
+}
+
+.diagnosis-history-ratings {
+  display: grid;
+  grid-template-areas: "resp-rate temp heart-rate"
+}
+
+.resp-rate {
+  grid-area: resp-rate;
+}
+
+.temp {
+  grid-area: temp;
+}
+
+.heart-rate {
+  grid-area: heart-rate;
 }
 
 .patient-profile {
