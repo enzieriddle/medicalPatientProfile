@@ -135,12 +135,12 @@ li {
   background-color: white;
   border-radius: 16px; 
   padding: 1em;
-  height: 60%
+  height: 1000px
 }
 
 .patients-list-ul {
   padding: 0;
-  height: 70vh;
+  height: 950px;
   overflow-y:auto;
 }
 
@@ -267,6 +267,14 @@ li {
   grid-area: bp;
 }
 
+.systolic {
+  color: #E66FD2;
+}
+
+.diastolic {
+  color: #8C6FE6;
+}
+
 .systolic img,
 .diastolic img {
   margin-right: .5em;
@@ -327,8 +335,39 @@ li {
   margin: 1em 1em 1em 0;
 }
 
-.patient-profile {
+.patient-profile { 
   grid-area: patient-profile;
+  background-color: white;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 16px;
+}
+ 
+.patient-profile-desc {
+  display: grid;
+  grid-template-columns: .2fr .8fr;
+  grid-template-areas: "patient-profile-desc-img patient-profile-info";
+  margin-bottom: 1em;
+}
+
+.patient-profile-desc img {
+  grid-area: patient-profile-desc-img;
+  align-self: center;
+  justify-self: end;
+  margin-right: .5em;
+}
+
+.patient-profile-info {
+  grid-area: patient-profile-info;
+}
+
+.patient-profile-info p:first-of-type {
+  font-family: Manrope-Bold;
+}
+
+.patient-profile-info p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .patient-profile-pic {
@@ -343,10 +382,113 @@ li {
   text-align: center;
 }
 
+.show-all-info {
+  background-color: #01F0D0;
+  padding: 1em;
+  border-radius: 41px;
+  text-align: center;
+  font-family: Manrope-Bold;
+  margin: 2em auto 0 auto;
+  width: 60%;
+}
+
 .diagnostic-list {
   grid-area: diagnostic-list;
+  background-color: white;
+  padding: 1em;
+  margin: 0 1em 1em 1em;
+  border-radius: 16px;
+} 
+
+.diagnostic-list h3 {
+  font-family: Manrope-Bold;
+  font-size: 24px;
+}
+
+.diagnostic-list ul {
+  padding-left: 1em;
+}
+
+.list-header {
+  background-color: #F6F7F8;
+  border-radius: 16px;
+  padding-left: 1em;
+  display: grid;
+  grid-template-columns: .3fr .5fr .2fr;
+  grid-template-areas: "problem-diag list-desc list-status"
+}
+
+.problem-diag {
+  grid-area: problem-diag;
+}
+
+.list-desc {
+  grid-area: list-desc;
+}
+
+.list-status {
+  grid-area: list-status;
+}
+
+.problem-diag,
+.list-desc,
+.list-status {
+  font-family: Manrope-Bold;
+}
+
+.list-layout {
+  border-bottom: solid 1px lightgray;
+  display: grid;
+  grid-template-columns: .3fr .5fr .2fr;
+  grid-template-areas: "ll-name ll-desc ll-status";
+}
+
+.ll-name {
+  grid-area: ll-name;
+}
+
+.ll-desc {
+  grid-area: ll-desc;
+}
+
+.ll-status {
+  grid-area: ll-status;
 }
 
 .lab-results {
+  background-color: white;
+  padding: 1em; 
+  margin: 1em;
   grid-area: lab-results;
+  border-radius: 16px;
+}
+
+.lab-results h3 {
+  font-family: Manrope-Bold;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.result-layout {
+  display: grid;
+  grid-template-columns: .8fr .2fr;
+  grid-template-areas: "results-name results-dl-btn";
+}
+ 
+.result-li {
+  background-color: white;
+  padding-left: 1em;
+}
+
+.result-li:hover {
+  background-color: #F6F7F8;
+}
+
+.result-name {
+  grid-area: results-name;
+}
+ 
+.result-dl-btn {
+  grid-area: results-dl-btn;
+  align-self: center;
 }

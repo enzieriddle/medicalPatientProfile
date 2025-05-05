@@ -53,21 +53,21 @@ function App() {
 
   const diagnosisList = jessicaTaylor?.diagnostic_list.map((diagnosis,i) =>
     <li key={diagnosis.name}>
-      <div>
-        <span>{diagnosis.name}</span>
-        <span>{diagnosis.description}</span>
-        <span>{diagnosis.status}</span>
+      <div className="list-layout">
+        <p className="ll-name">{diagnosis.name}</p>
+        <p className="ll-desc">{diagnosis.description}</p>
+        <p className="ll-status">{diagnosis.status}</p>
       </div>
     </li>
   );
 
   const labResults = jessicaTaylor?.lab_results.map((result,i) =>
-    <li key={result}>
-      <div>
-        <span>{result}</span>
-        <img src="src/assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="download icon" />
+    <li className="result-li" key={result}>
+      <div className="result-layout">
+        <p className="result-name">{result}</p>
+        <img className="result-dl-btn" src="src/assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="download icon" />
       </div>
-    </li>
+    </li> 
   );
   
   const months = [];
@@ -81,11 +81,14 @@ function App() {
   //console.log(diagnosisHistory?.month);
 
   const chartOptions = {
+  plugins: {
     legend: {
-      display: true,
-      position: "right"
+      position: 'top',
+      labels: {
+        usePointStyle: true
+      }
     }
-  };
+  }}
 
   
   return (
@@ -153,20 +156,24 @@ function App() {
                   data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.systolic.value),
                   tension: .3,
                   borderColor: '#E66FD2',
-                  options: {
-                    plugins: {
-                      legend: {
-                        position: 'right'
-                      }
-                    }
-                  }
+                  pointBackgroundColor: '#E66FD2',
+                  pointRadius: 5
                 }, {
                   label: "Diastolic",
                   data: jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.diastolic.value),
                   tension: .3,
-                  borderColor: '#7E6CAB'
+                  borderColor: '#7E6CAB',
+                  pointBackgroundColor: '#7E6CAB',
+                  pointRadius: 5
                 }
-              ]
+              ],
+              options: {
+                plugins: {
+                    legend: { 
+                        position: "right"
+                    }
+                  }
+                }
               }} />
             </div>
             <div className="bp">
@@ -216,46 +223,61 @@ function App() {
           <div>
               <img className="patient-profile-pic" src={jessicaTaylor?.profile_picture}></img>
             <p className="patient-profile-name">{jessicaTaylor?.name}</p>
-            <div>
+            <div className="patient-profile-desc">
               <img height="40" width="40" src="./src/assets/birthIcon.svg"></img>
-              <p>Date of Birth</p>
-              <p>{jessicaTaylor?.date_of_birth}</p>
+              <div className="patient-profile-info">
+                <p>Date of Birth</p>
+                <p>{jessicaTaylor?.date_of_birth}</p>
+              </div>
             </div>
-            <div>
+            <div className="patient-profile-desc">
               <img height="40" width="40" src="./src/assets/FemaleIcon.svg"></img>
-              <p>Gender</p>
-              <p>{jessicaTaylor?.gender}</p>
+              <div className="patient-profile-info">
+                <p>Gender</p>
+                <p>{jessicaTaylor?.gender}</p>
+              </div>
             </div>
             
-            <div>
+            <div className="patient-profile-desc">
               <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
-              <p>Contact Info</p>
-              <p>{jessicaTaylor?.phone_number}</p>
+              <div className="patient-profile-info">
+                <p>Contact Info</p>
+                <p>{jessicaTaylor?.phone_number}</p>
+              </div>
             </div>
-            <div>
+            <div className="patient-profile-desc">
               <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
-              <p>Emergency Contacts</p>
-              <p>{jessicaTaylor?.emergency_contact}</p>
+              <div className="patient-profile-info">
+                <p>Emergency Contacts</p>
+                <p>{jessicaTaylor?.emergency_contact}</p>
+              </div>
             </div>
 
-            <div>
+            <div className="patient-profile-desc">
               <img height="40" width="40" src="src/assets/InsuranceIcon.svg"></img>
-              <p>Insurance Provider</p>
-              <p>{jessicaTaylor?.insurance_type}</p>
+              <div className="patient-profile-info">
+                <p>Insurance Provider</p> 
+                <p>{jessicaTaylor?.insurance_type}</p>
+              </div>
             </div>
 
-            <div>
-              <p>Show All Information</p>
-            </div>
+              <p className="show-all-info">Show All Information</p>
           </div>
         </div>
-
+ 
         <div className="diagnostic-list">
+          <h3>Diagnosis List</h3>
+          <div className="list-header">
+            <p className="problem-diag">Problem/Diagnosis</p>
+            <p className="list-desc">Description</p>
+            <p className="list-status">Status</p>
+          </div>
           <ul>
             {diagnosisList}
           </ul>
         </div>
         <div className="lab-results">
+          <h3>Lab Results</h3>
           <ul>
             {labResults}
           </ul>
