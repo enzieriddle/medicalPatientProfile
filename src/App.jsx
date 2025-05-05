@@ -95,7 +95,7 @@ function App() {
     <>
       <div className="layout">
         <div className="navigation">
-          <img className="logo" src="./src/assets/TestLogo.svg" alt="logo"></img>
+          <img className="logo" src="/assets/TestLogo.svg" alt="logo"></img>
 
           <div className="overview">
             <img src="./src/assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="house icon"></img>
