@@ -1,11 +1,11 @@
 @font-face {
   font-family: Manrope-Regular;
-  src: url(./src/assets/Manrope/static/Manrope-Regular.ttf);
+  src: url(https://res.cloudinary.com/dtmhzk9kx/raw/upload/v1746549991/Manrope-Regular_lrfzf4.ttf);
 }
 
 @font-face {
   font-family: Manrope-Bold;
-  src: url(./src/assets/Manrope/static/Manrope-Bold.ttf);
+  src: url(https://res.cloudinary.com/dtmhzk9kx/raw/upload/v1746549994/Manrope-Bold_rvyzcl.ttf);
 }
 
 :root {
