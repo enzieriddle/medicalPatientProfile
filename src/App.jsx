@@ -195,7 +195,7 @@ function App() {
           
           <div className="diagnosis-history-ratings">
             <div className="resp-rate">
-              <img height="80" width="80" src="./src/assets/respiratoryRate.svg"></img>
+              <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490649/respiratoryRate_dsakqf.svg"></img>
               <p className="ratings-title">Respiratory Rate</p>
               <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
               <p>{jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
