@@ -46,7 +46,7 @@ function App() {
           <span>{user.gender}, </span>
           <span>{user.age}</span>  
         </div>  
-        <img className="horiz-dots" src="src/assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="three horizontal dots"></img>
+        <img className="horiz-dots" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490641/more_horiz_FILL0_wght300_GRAD0_opsz24_fq86xk.svg" alt="three horizontal dots"></img>
       </div>  
     </li> 
 );
@@ -65,20 +65,12 @@ function App() {
     <li className="result-li" key={result}>
       <div className="result-layout">
         <p className="result-name">{result}</p>
-        <img className="result-dl-btn" src="src/assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="download icon" />
+        <img className="result-dl-btn" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490639/download_FILL0_wght300_GRAD0_opsz24_1_gkte1k.svg" alt="download icon" />
       </div>
     </li> 
   );
   
   const months = [];
-
- /* const diagnosisHistory = jessicaTaylor?.diagnosis_history.map((history) => 
-    console.log(history)
-  ); 
-  jessicaTaylor?.diagnosis_history.map((history) => 
-    console.log(history.blood_pressure.systolic.value)
-  ); */
-  //console.log(diagnosisHistory?.month);
 
   const chartOptions = {
   plugins: {
@@ -95,44 +87,44 @@ function App() {
     <>
       <div className="layout">
         <div className="navigation">
-          <img className="logo" src="/assets/TestLogo.svg" alt="logo"></img>
+          <img className="logo" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490646/TestLogo_vnqzed.svg" alt="logo"></img>
 
           <div className="overview">
-            <img src="./src/assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="house icon"></img>
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490645/home_FILL0_wght300_GRAD0_opsz24_tf8mfh.svg" alt="house icon"></img>
             <p>Overview</p> 
           </div>
           <div className="patients">
-            <img src="src/assets/group_FILL0_wght300_GRAD0_opsz24.svg" alt="patients icon"></img>
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490644/group_FILL0_wght300_GRAD0_opsz24_xk0nur.svg" alt="patients icon"></img>
             <p>Patients</p>
           </div>
           <div className="schedule">
-            <img src="./src/assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="calendar icon"></img>
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490644/calendar_today_FILL0_wght300_GRAD0_opsz24_mvdcbn.svg" alt="calendar icon"></img>
             <p>Schedule</p>
           </div>
           <div className="message">
-            <img src="src/assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="chat bubble icon"></img>
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490643/chat_bubble_FILL0_wght300_GRAD0_opsz24_gkfh48.svg" alt="chat bubble icon"></img>
             <p>Message</p>
           </div>
           <div className="transaction">
-            <img src="src/assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg" alt="credit card icon"></img>
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490643/credit_card_FILL0_wght300_GRAD0_opsz24_robsts.svg" alt="credit card icon"></img>
             <p>Transactions</p>
           </div>
 
           <div className="doc-info">
-            <img className="doc-img" src="./src/assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png" alt="senior woman doctor" />
+            <img className="doc-img" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490638/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc_fej7oe.png" alt="senior woman doctor" />
             <p className="doc-name">Dr. Jose Simmons</p>
             <p className="doc-title">General Practitioner</p>
           </div>
 
           <div className="settings">
-            <img className="gear" src="./src/assets/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="gear icon"></img>
-            <img className="vert-dots" src="src/assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt="three vertical dots icon"></img>
+            <img className="gear" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490641/settings_FILL0_wght300_GRAD0_opsz24_c8jclu.svg" alt="gear icon"></img>
+            <img className="vert-dots" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490642/more_vert_FILL0_wght300_GRAD0_opsz24_nqefjx.svg" alt="three vertical dots icon"></img>
           </div>
         </div>
         <div className="patients-list">
           <div className="patients-head">
             <h3>Patients</h3> 
-            <img src="./src/assets/search_FILL0_wght300_GRAD0_opsz24.svg" alt="spy glass icon" />
+            <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490640/search_FILL0_wght300_GRAD0_opsz24_r62wto.svg" alt="spy glass icon" />
           </div> 
           
           <ul className="patients-list-ul"> {patientsList}</ul>
@@ -144,7 +136,7 @@ function App() {
           <div className="bp-head">
               <p className="bp-head-title">Blood Pressure</p>
               <p className="date-range">Last 6 months</p>
-              <img className="bp-head-arrow" src="./src/assets/expand_more_FILL0_wght300_GRAD0_opsz24@2x.png" alt="down-arrow-icon"></img>
+              <img className="bp-head-arrow" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490638/expand_more_FILL0_wght300_GRAD0_opsz24_2x_ycnyhf.png" alt="down-arrow-icon"></img>
           </div>
 
           <div className="chart-bp"> 
@@ -179,13 +171,13 @@ function App() {
             <div className="bp">
               <div className="systolic">
                 <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
-                <img src="./src/assets/ArrowUp.svg" alt="up arrow icon"></img>
+                <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490640/ArrowUp_cktxgd.svg" alt="up arrow icon"></img>
                 <span>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</span>
               </div>
 
               <div className="diastolic">
                 <p>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
-                <img src="./src/assets/ArrowDown.svg" alt="down arrow icon"></img>
+                <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490639/ArrowDown_xi4bbo.svg" alt="down arrow icon"></img>
                 <span>{jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</span>
               </div>
             </div>
@@ -202,17 +194,17 @@ function App() {
             </div>
 
             <div className="temp">
-              <img height="80" width="80" src="./src/assets/temperature.svg"></img>
+              <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490648/temperature_oydjh4.svg"></img>
               <p className="ratings-title">Temperature</p>
               <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.temperature?.value } °F</p>
               <p>{jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
             </div>
 
             <div className="heart-rate">
-              <img height="80" width="80" src="./src/assets/heartBPM.svg"></img>
+              <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490649/HeartBPM_mdxo1d.svg"></img>
               <p className="ratings-title">Heart Rate</p>
               <p className="ratings-value">{jessicaTaylor?.diagnosis_history[0]?.heart_rate?.value } bpm</p>
-              <img className="heart-rate-down-arrow" src="./src/assets/ArrowDown.svg" alt="down arrow icon"></img>
+              <img className="heart-rate-down-arrow" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490639/ArrowDown_xi4bbo.svg" alt="down arrow icon"></img>
               <span>{jessicaTaylor?.diagnosis_history[0]?.heart_rate?.levels }</span>
             </div>
           </div>
@@ -224,14 +216,14 @@ function App() {
               <img className="patient-profile-pic" src={jessicaTaylor?.profile_picture}></img>
             <p className="patient-profile-name">{jessicaTaylor?.name}</p>
             <div className="patient-profile-desc">
-              <img height="40" width="40" src="./src/assets/birthIcon.svg"></img>
+              <img height="40" width="40" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490648/BirthIcon_zrdrnw.svg"></img>
               <div className="patient-profile-info">
                 <p>Date of Birth</p>
                 <p>{jessicaTaylor?.date_of_birth}</p>
               </div>
             </div>
             <div className="patient-profile-desc">
-              <img height="40" width="40" src="./src/assets/FemaleIcon.svg"></img>
+              <img height="40" width="40" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490647/FemaleIcon_tij4os.svg"></img>
               <div className="patient-profile-info">
                 <p>Gender</p>
                 <p>{jessicaTaylor?.gender}</p>
@@ -239,14 +231,14 @@ function App() {
             </div>
             
             <div className="patient-profile-desc">
-              <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
+              <img height="40" width="40" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490647/PhoneIcon_t45rrj.svg"></img>
               <div className="patient-profile-info">
                 <p>Contact Info</p>
                 <p>{jessicaTaylor?.phone_number}</p>
               </div>
             </div>
             <div className="patient-profile-desc">
-              <img height="40" width="40" src="./src/assets/PhoneIcon.svg"></img>
+              <img height="40" width="40" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490647/PhoneIcon_t45rrj.svg"></img>
               <div className="patient-profile-info">
                 <p>Emergency Contacts</p>
                 <p>{jessicaTaylor?.emergency_contact}</p>
@@ -254,7 +246,7 @@ function App() {
             </div>
 
             <div className="patient-profile-desc">
-              <img height="40" width="40" src="src/assets/InsuranceIcon.svg"></img>
+              <img height="40" width="40" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490646/InsuranceIcon_f1crwr.svg"></img>
               <div className="patient-profile-info">
                 <p>Insurance Provider</p> 
                 <p>{jessicaTaylor?.insurance_type}</p>
