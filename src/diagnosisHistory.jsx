@@ -3,16 +3,6 @@ import { Line } from 'react-chartjs-2'
 
 function DiagnosisHistory(props) {
 
-  /*const chartOptions = {
-    plugins: {
-      legend: {
-        position: 'top',
-        labels:
-          usePointStyle: true
-        }
-      }
-    }*/
-
     return (
         <>
         <div className="diagnosis-history">
@@ -28,17 +18,17 @@ function DiagnosisHistory(props) {
           <div className="chart-bp"> 
             <div className="line-chart">
               <Line data={{
-                labels: props.jessicaTaylor?.diagnosis_history.slice(0,6).map(history => history.month),
+                labels: props.currentPatient?.diagnosis_history.slice(0,6).map(history => history.month),
                 datasets: [{
                   label: "Systolic",
-                  data: props.jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.systolic.value),
+                  data: props.currentPatient?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.systolic.value),
                   tension: .3,
                   borderColor: '#E66FD2',
                   pointBackgroundColor: '#E66FD2',
                   pointRadius: 5
                 }, {
                   label: "Diastolic",
-                  data: props.jessicaTaylor?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.diastolic.value),
+                  data: props.currentPatient?.diagnosis_history.slice(0,6).map((history) => history.blood_pressure.diastolic.value),
                   tension: .3,
                   borderColor: '#7E6CAB',
                   pointBackgroundColor: '#7E6CAB',
@@ -56,15 +46,15 @@ function DiagnosisHistory(props) {
             </div>
             <div className="bp">
               <div className="systolic">
-                <p>{props.jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
+                <p>{props.currentPatient?.diagnosis_history[0]?.blood_pressure?.systolic?.value}</p>
                 <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490640/ArrowUp_cktxgd.svg" alt="up arrow icon"></img>
-                <span>{props.jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</span>
+                <span>{props.currentPatient?.diagnosis_history[0]?.blood_pressure?.systolic?.levels}</span>
               </div>
 
               <div className="diastolic">
-                <p>{props.jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
+                <p>{props.currentPatient?.diagnosis_history[0]?.blood_pressure?.diastolic?.value}</p>
                 <img src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490639/ArrowDown_xi4bbo.svg" alt="down arrow icon"></img>
-                <span>{props.jessicaTaylor?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</span>
+                <span>{props.currentPatient?.diagnosis_history[0]?.blood_pressure?.diastolic?.levels}</span>
               </div>
             </div>
           </div>
@@ -75,23 +65,23 @@ function DiagnosisHistory(props) {
             <div className="resp-rate">
               <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490649/respiratoryRate_dsakqf.svg"></img>
               <p className="ratings-title">Respiratory Rate</p>
-              <p className="ratings-value">{props.jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
-              <p>{props.jessicaTaylor?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
+              <p className="ratings-value">{props.currentPatient?.diagnosis_history[0]?.respiratory_rate?.value } bpm</p>
+              <p>{props.currentPatient?.diagnosis_history[0]?.respiratory_rate?.levels }</p>
             </div>
 
             <div className="temp">
               <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490648/temperature_oydjh4.svg"></img>
               <p className="ratings-title">Temperature</p>
-              <p className="ratings-value">{props.jessicaTaylor?.diagnosis_history[0]?.temperature?.value } °F</p>
-              <p>{props.jessicaTaylor?.diagnosis_history[0]?.temperature?.levels }</p>
+              <p className="ratings-value">{props.currentPatient?.diagnosis_history[0]?.temperature?.value } °F</p>
+              <p>{props.currentPatient?.diagnosis_history[0]?.temperature?.levels }</p>
             </div>
 
             <div className="heart-rate">
               <img height="80" width="80" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490649/HeartBPM_mdxo1d.svg"></img>
               <p className="ratings-title">Heart Rate</p>
-              <p className="ratings-value">{props.jessicaTaylor?.diagnosis_history[0]?.heart_rate?.value } bpm</p>
+              <p className="ratings-value">{props.currentPatient?.diagnosis_history[0]?.heart_rate?.value } bpm</p>
               <img className="heart-rate-down-arrow" src="https://res.cloudinary.com/dtmhzk9kx/image/upload/v1746490639/ArrowDown_xi4bbo.svg" alt="down arrow icon"></img>
-              <span>{props.jessicaTaylor?.diagnosis_history[0]?.heart_rate?.levels }</span>
+              <span>{props.currentPatient?.diagnosis_history[0]?.heart_rate?.levels }</span>
             </div>
           </div>
          

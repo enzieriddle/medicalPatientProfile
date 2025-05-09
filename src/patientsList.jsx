@@ -1,7 +1,9 @@
 function PatientsList(props) {
-    console.log(props);
-    const patientsList = props.usersDataArray.map((user) =>
-        <li key={user.name} className={user.name == "Jessica Taylor" ? 'selected-patient': '' }> 
+    let userName= ""
+
+    // Map each patient in array of patients to a list item
+    const patientsList = props.usersDataArray.map((user, i) =>
+        <li onClick={() => props.handlePatientListClick(user.name, user.name+i)} key={user.name} id={user.name + i} className=""> 
           <div className="patient-style">
             <img className="patient-img" src={user.profile_picture} alt="user profile picture"></img>
             <p className="patient-name">{user.name}</p>
@@ -27,3 +29,4 @@ function PatientsList(props) {
 }
 
 export default PatientsList
+

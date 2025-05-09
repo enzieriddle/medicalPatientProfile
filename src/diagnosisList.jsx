@@ -1,6 +1,8 @@
 function DiagnosisList (props) {
-  const diagnosisList = props.jessicaTaylor?.diagnostic_list.map((diagnosis,i) =>
-    <li key={diagnosis.name}>
+
+  // Map each diagnosis in the array of diagnosis to a list item
+  const diagnosisList = props.currentPatient?.diagnostic_list.map((diagnosis,i) =>
+    <li key={props.currentPatient.name + i}>
       <div className="list-layout">
         <p className="ll-name">{diagnosis.name}</p>
         <p className="ll-desc">{diagnosis.description}</p>
@@ -9,7 +11,8 @@ function DiagnosisList (props) {
     </li>
   );
 
-  const labResults = props.jessicaTaylor?.lab_results.map((result,i) =>
+  // Map each lab result in the array of results to a list item
+  const labResults = props.currentPatient?.lab_results.map((result,i) =>
     <li className="result-li" key={result}>
       <div className="result-layout">
         <p className="result-name">{result}</p>
